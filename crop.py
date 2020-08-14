@@ -8,8 +8,7 @@ def resize_aspect(im, res):
     return im.resize((res,res),Image.ANTIALIAS)
 
 directory = '/home/in01-nbk-570/Desktop/photos/'
-extension = 'png'
-files_address_list = "{directory}*.{extension}".format(directory=directory, extension=extension)
+files_address_list = "{directory}*.png".format(directory=directory)
 imgList=glob.glob(files_address_list)
 resolution = 1024
 for img in imgList:
@@ -27,5 +26,5 @@ for img in imgList:
     w,h = resized_image.size
 
     file_name, file_extension=os.path.splitext(img)
-    cropped_file_name = "{file_name}_cropped.{ext}".format(file_name=file_name, ext=extension)
+    cropped_file_name = "{file_name}_cropped.png".format(file_name=file_name)
     resized_image.save(cropped_file_name, "PNG")
